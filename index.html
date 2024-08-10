@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calci</title>
+    <style>
+        body{
+            margin:50px;
+            color:white;
+            background-color: black;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #calcu{
+            max-width: 300px;
+            margin:auto;
+            background-color: black;
+            padding:10px;
+            box-shadow: 0 0 10px white;
+            border-radius:5px;
+            padding:10px;
+
+        }
+        input{
+            width:80%;
+            margin-bottom: 5px;
+            padding:10px;
+            box-sizing: borddder-box;
+            font-size: 10px;
+            outline: none;
+            border-radius:5px;
+            border:none;
+            color:white;
+            background-color: rgb(216, 145, 37);
+        }
+        button{
+            width:100%;
+            padding:20px;
+            font-size: 13px;
+            margin:2px;
+            cursor:pointer;
+            border-radius:5px;
+            border:none;
+            background-color: aquamarine;
+            color:red;
+            transition: background-color 0.4s ease;
+
+
+        }
+        button:hover{
+            background-color: lightsalmon;
+        }
+        #equals{
+            background-color: blue;
+            color:white;
+
+        }
+        #equals:hover{
+            background-color: black;
+        }
+        #clear{
+            background-color: green;
+            color:white;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>CALACULATOR</h1>
+    <div id="calcu">
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="appendtodisplay('1')">1</button>
+        <button onclick="appendtodisplay('2')">2</button>
+        <button onclick="appendtodisplay('3')">3</button>
+        <button onclick="appendtodisplay('+')">+</button>
+        <br>
+        <button onclick="appendtodisplay('4')">4</button>
+        <button onclick="appendtodisplay('5')">5</button>
+        <button onclick="appendtodisplay('6')">6</button>
+        <button onclick="appendtodisplay('-')">-</button>
+        <br>
+        <button onclick="appendtodisplay('7')">7</button>
+        <button onclick="appendtodisplay('8')">8</button>
+        <button onclick="appendtodisplay('9')">9</button>
+        <button onclick="appendtodisplay('*')">*</button>
+        <br>
+        <button onclick="appendtodisplay('0')">0</button>
+        <button id="clear"onclick="cleardisplay()">C</button>
+        <button id="equals"onclick="calculateResult()">=</button>
+        <button onclick="appendtodisplay('/')">/</button>
+    </div>
+    <script>
+        function appendtodisplay(value){
+            document.getElementById('display').value += value;
+        }
+        function cleardisplay(){
+            document.getElementById('display').value = '';
+        }
+        function calculateResult() {
+             var expression = document.getElementById('display').value;
+             var result;
+             try{
+                 result=eval(expression);
+                 document.getElementById('display').value = result;
+
+             }
+             catch (error){
+                document.getElementById('display').value ='Error';
+             }
+        }
+    </script>
+    
+</body>
+</html>
